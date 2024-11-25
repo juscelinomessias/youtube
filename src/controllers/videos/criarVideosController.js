@@ -1,4 +1,10 @@
 const pool = require('../../config/conexao');
+const path = require('path');
+
+// Rota para carregar a página do formulário de Vídeos
+const criarVideosWeb = (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public', 'videos.html'));
+}
 
 const criarVideosController = async (req, res) => {
     const { nome, descricao, url, categorias_videos_id } = req.body;
@@ -37,5 +43,6 @@ const criarVideosController = async (req, res) => {
 };
 
 module.exports = {
-    criarVideosController
+    criarVideosController,
+    criarVideosWeb
 }

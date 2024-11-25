@@ -1,6 +1,15 @@
 const express = require('express');
-const app = express();
 const rotas = require('../src/routes/routes');
+
+const path = require('path');
+
+const app = express();
+
+// Configura o middleware para servir aquivos estáticos da pasta 'src/public'
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware para processar dados do tipo application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 

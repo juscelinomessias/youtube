@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const pool = require('../../config/conexao');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -9,8 +10,14 @@ const jwt = require('jsonwebtoken');
 
 const jwtSecret = process.env.JWT_SECRET;
 
+// Rota para carregar a página do formulário de Login
+const logarUsuariosWeb = (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public', 'login.html'));
+}
+
 const logarUsuariosController = async (req, res) => {
     const { email, senha } = req.body;
+    console.log(email, senha);
 
     // Validação dos campos de entrada
     if(!email || !email.trim()){
@@ -45,10 +52,12 @@ const logarUsuariosController = async (req, res) => {
 
         // return res.status(200).json({ message: 'Usuário logado com sucesso!'})
 
-        return res.status(200).json({
-            usuario: usuarioSemSenha,
-            token: token
-        });
+        // return res.status(200).json({
+        //     usuario: usuarioSemSenha,
+        //     token: token
+        // });
+
+        return res.redirect('/videos');  // Redireciona para a página de vídeos
         
     } catch (err) {
         console.error('Erro ao logar Usuário:', err.message);
@@ -58,5 +67,6 @@ const logarUsuariosController = async (req, res) => {
 };
 
 module.exports = {
-    logarUsuariosController
+    logarUsuariosController,
+    logarUsuariosWeb
 };
