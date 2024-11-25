@@ -57,7 +57,9 @@ const logarUsuariosController = async (req, res) => {
         //     token: token
         // });
 
-        return res.redirect('/videos');  // Redireciona para a página de vídeos
+        // return res.redirect('/videos');  // Redireciona para a página de vídeos
+
+        return res.json({ token });
         
     } catch (err) {
         console.error('Erro ao logar Usuário:', err.message);
