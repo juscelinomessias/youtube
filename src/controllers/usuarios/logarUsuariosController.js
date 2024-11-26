@@ -17,7 +17,6 @@ const logarUsuariosWeb = (req, res) => {
 
 const logarUsuariosController = async (req, res) => {
     const { email, senha } = req.body;
-    console.log(email, senha);
 
     // Validação dos campos de entrada
     if(!email || !email.trim()){

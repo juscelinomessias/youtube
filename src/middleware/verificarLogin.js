@@ -32,6 +32,8 @@ const verificarLogin = async (req, res, next) => {
 
         req.usuario = usuarioSemSenha;
 
+        console.log('Passou tranquilo!!!');
+
         next();
 
     } catch (err) {

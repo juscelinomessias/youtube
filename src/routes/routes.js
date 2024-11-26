@@ -18,7 +18,7 @@ rotas.post('/usuarios', criarUsuariosController);
 rotas.get('/usuarios', listarUsuariosController);
 rotas.post('/login', logarUsuariosController);
 
-// rotas.use(verificarLogin);
+rotas.use(verificarLogin);
 
 rotas.post('/videos', criarVideosController);
 rotas.get('/videos', listarVideosController);
