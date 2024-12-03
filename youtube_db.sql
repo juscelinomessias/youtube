@@ -1,5 +1,3 @@
-CREATE DATABASE youtube_db;
-
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
@@ -18,8 +16,6 @@ CREATE TABLE categorias_videos (
 
 INSERT INTO categorias_videos (nome)
 VALUES 
-
-
 ('Vlogs'), 
 ('Tecnologia'), 
 ('Gaming'),
@@ -34,8 +30,10 @@ CREATE TABLE videos (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     descricao TEXT NOT NULL,
-    Ural TEXT NOT NULL,
-    categorias_videos_id INTEGER REFERENCES categorias_videos(id) ON DELETE CASCADE,
+    url TEXT NOT NULL,
+    categorias_videos_id INTEGER NOT NULL REFERENCES categorias_videos(id) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
+
+
