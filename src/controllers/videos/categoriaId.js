@@ -1,6 +1,6 @@
 const pool = require('../../config/conexao');
 
-const categoriaId = async (req, res) => {
+const listarVideosPorCategoriaController = async (req, res) => {
     const categoriaId = req.params.categoriaId;
 
     try {
@@ -35,6 +35,6 @@ const categoriaId = async (req, res) => {
 };
 
 module.exports = {
-    categoriaId
+    listarVideosPorCategoriaController
 };
     

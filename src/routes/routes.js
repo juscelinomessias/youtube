@@ -7,7 +7,7 @@ const { logarUsuariosController, logarUsuariosWeb } = require('../controllers/us
 const { verificarLogin } = require('../middleware/verificarLogin');
 const { listarCategoriasVideosController } = require('../controllers/videos/listarCategoriasVideosController');
 const { deletarVideosController } = require('../controllers/videos/deletarVideosController');
-const { categoriaId } = require('../controllers/videos/categoriaId');
+const { listarVideosPorCategoriaController } = require('../controllers/videos/categoriaId');
 
 const rotas = express();
 
@@ -26,7 +26,7 @@ rotas.post('/admin/login', logarUsuariosController);
 
 rotas.get('/admin/categorias', listarCategoriasVideosController);
 rotas.get('/admin/videos', listarVideosController);
-rotas.get('/admin/videos/:categoriaId', categoriaId);
+rotas.get('/admin/videos/:categoriaId', listarVideosPorCategoriaController);
 
 
 rotas.use(verificarLogin);
